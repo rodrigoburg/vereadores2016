@@ -1,0 +1,11 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Rodrigo Burgarelli -- Data Journalist -- @rodrigoburg
+
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3, jQuery, Modernizr, D3.js
