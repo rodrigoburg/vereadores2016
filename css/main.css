@@ -1,16 +1,21 @@
 
+.content {
+  max-width:960px;
+  padding-top:15px;
+}
 
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
+.barra_superior {
+    padding-bottom:20px;
+}
 
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
 
-
-
-
-
-
-
+.slick-prev:before, .slick-next:before { 
+    color:red !important;
+}
 
 
 
