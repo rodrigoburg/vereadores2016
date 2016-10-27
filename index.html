@@ -13,6 +13,8 @@
 
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-select.min.css">
+        <link href="css/typeaheadjs.css" rel="stylesheet">
+
 
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
@@ -23,20 +25,38 @@
       <div class='content container-fluid col-centered'>        
         <div>
           <div class=barra_superior>
-            <div>Simulação aleatória e equilibrada</div>
-            <div>Diferença brancos e não brancos</div>
-            <div>Nos Estados, o mais desigual é o RJ</div>
-            <div>E o AC é o único em que os vereadores são menos brancos que a população</div>
-            <div>Diferença homens e mulheres</div>
-            <div>O sudeste é a região mais desigual. em MG, a média dos muniucípios é 40% a mais</div>
-            <div>
-              <div class='col-md-6'><p id=tooltip>Agora fuce, passe o mouse, digite uma cidade, etc</p></div>              
-              <div class='col-md-4'>
-                <select id=variavel class="selectpicker" data-container="body" data-width='auto'>
+            <div><h3>Uma simulação perfeita<small class="text-muted"> e equilibrada</small></h3>
+            <p>Cada quadradinho representa um dos 5562 municípios brasileiros<sup>*</sup>. Quanto mais vermelho, maior é o excedente de brancos na Câmara municipal eleita comparado com a população - ou seja, mais os brancos são sobrerrepresentados no Legislativo. O azul representa o contrário: cidades em que há mais brancos na população do que entre os representantes. Veja abaixo como o gráfico ficaria se a diferença de brancos e não-brancos entre os vereadores e a população fosse aleatória e equilibrada.</p>           
+            </div>
+            <div><h3>Mas a realidade é bem diferente</h3>
+            <p>Os dados agora mostram a diferença real da composição racial dos representantes e representados. Veja como a linha pontilhada cinza que separa os dois grupos de municípios está mais em cima. Só um em cada quatro municípios está do lado de cima da linha - e a grande maioria terá em 2017 uma Câmara municipal mais branca que a população.</p>              
+            <p class="tooltipi"></p>
+            </div>
+            <div><h3>Entre os Estados, o RJ é o mais desigual</h3>
+            <p>A diferença racial entre vereadores e população no Rio de Janeiro é a maior dos Estados brasileiros. Só 9 em 77 municípios têrão Câmaras menos brancas que a média dos seus moradores.</p>              
+            <p class="tooltipi"></p>
+            </div>
+            <div><h3>E o Acre é o oposto</h3>
+            <p>O Acre é o único Estado em que os vereadores serão menos brancos que a população, em média. O gráfico abaixo mostra que isso ocorreu 16 dos 22 municípios acrianos.</p>
+            <p class="tooltipi"></p>
+            </div>
+            <div><h3>O fosso entre homens e mulheres é ainda bem maior</h3>
+            <p>A diferença de gênero entre representantes e representados é bem mais gritante do que a racial. Há uma proporção maior de mulheres eleitas para as Câmaras municipais do que na população em geral em apenas 24 cidades brasileiras. Em 1.288 municípios - ou seja, quase 1/4 do total -, todos os vereadores a partir do ano que vem serão homens.</p>
+            <p class="tooltipi"></p>
+            </div>
+            <div><h3>O Sudeste é a região mais desigual em gênero</h3>
+            <p>O gráfico abaixo é um retrato de Minas Gerais, o Estado com o maior número de municípios do País. Em MG, a proporção de homens nas Câmaras será de 40 pontos percentuais a mais que na população a partir de 2017, em média.</p>
+            <p class="tooltipi"></p>
+            </div>            
+            <div class='wrapper'>
+              <h3>Explore<small class="text-muted"> Passe o mouse, faça filtros e escolha cidades</small></h3>
+              <div class='col-md-6'><p class="tooltipi"></p></div>              
+              <div class='col-md-6 pull-right'>
+                <select id=variavel class="selectpicker" data-container="body" data-width='auto' data-style="btn-primary">
                   <option>Gênero</option>
                   <option>Raça</option>                  
                 </select>
-                <select id=uf class="selectpicker" data-container="body" data-width='auto'>
+                <select id=uf class="selectpicker" data-container="body" data-width='auto' data-style="btn-primary">
                   <option>Brasil</option>
                   <option data-divider="true"></option>
                   <option>AC</option>
@@ -66,9 +86,9 @@
                   <option>SP</option>
                   <option>TO</option>
               </select>
+              <input type="text" id=input-cidade autocomplete="off" placeholder="Digite um nome de cidade"> 
 
               </div>
-              <div class='col-md-2'><input type="text" id=input-cidade data-provide="typeahead" autocomplete="off"> </div>
             </div>            
           </div>
           <div id=grafico>

@@ -1,3 +1,6 @@
+h3 {
+	padding-bottom: 15px;
+}
 
 .content {
   max-width:960px;
@@ -18,9 +21,39 @@
 }
 
 
+html {
+  font-size: 14px;
+}
 
+@include media-breakpoint-up(sm) {
+  html {
+    font-size: 16px;
+  }
+}
 
+@include media-breakpoint-up(md) {
+  html {
+    font-size: 20px;
+  }
+}
 
+@include media-breakpoint-up(lg) {
+  html {
+    font-size: 28px;
+  }
+}
+
+#input-cidade {
+	width:180px;
+	height:36px;
+}
+
+.wrapper {
+position: relative;
+}
+.tt-dropdown-menu {
+position: static;
+}
 
 
 

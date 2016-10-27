@@ -535,6 +535,7 @@
        * @returns {string}
        */
       var generateA = function (text, classes, inline, tokens) {
+          classes += " dropdown-item";
         return '<a tabindex="0"' +
             (typeof classes !== 'undefined' ? ' class="' + classes + '"' : '') +
             (typeof inline !== 'undefined' ? ' style="' + inline + '"' : '') +
