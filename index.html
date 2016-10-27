@@ -96,19 +96,57 @@
         </div>        
       </div>
       <hr>
+      <script src="js/vendor/jquery-1.11.2.min.js"></script>
+      <script type="text/javascript" src="slick/slick.min.js"></script>
+      <script>
+        //liga o slick do conteúdo
+        $('.barra_superior').slick({
+            speed: 300,
+            slidesToScroll: 1,
+            dots: true,
+            arrows: true,
+            infinite: false,
+            draggable: false
+        });
+
+        $('.barra_superior').on('afterChange', function(slick, currentSlide, nextSlide) {
+        var slide = currentSlide.currentSlide
+        switch (slide) {
+            case 0:
+                desenha_grafico('fake');
+                break;
+            case 1:
+                desenha_grafico('raca');
+                break;
+            case 2:
+                desenha_grafico('raca', 'RJ');
+                break;
+            case 3:
+                desenha_grafico('raca', 'AC');
+                break;
+            case 4:
+                desenha_grafico('genero');
+                break;
+            case 5:
+                desenha_grafico('genero', "MG");
+                break;
+            case 6:
+                desenha_grafico('genero', "Brasil");
+                break;
+        }
+    });
+      </script>
 
       <footer>
         <p>&copy; Company 2015</p>
       </footer>
-    </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+    </div> 
 
         <script src="https://www.atlasestateagents.co.uk/javascript/tether.min.js"></script><!-- Tether for Bootstrap --> 
         <script src="js/vendor/bootstrap.min.js"></script>
           <script src="js/vendor/bootstrap-select.js"></script>
         <script src="js/vendor/d3.v4.min.js"></script>
         <script src="js/vendor/typeahead.min.js"></script>
-        <script type="text/javascript" src="slick/slick.min.js"></script>
 
         <script src="js/main.js"></script>
 

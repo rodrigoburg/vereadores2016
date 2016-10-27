@@ -85,7 +85,7 @@ function desenha_grafico(variavel, uf) {
 		.attr("width", 0)
 		.remove();
 
-    tooltip.html('');
+    tooltip.html('<p style="color:white">vazio</p>');
 
     d3.select('.linha_divisao').transition().duration(500).remove()
 
@@ -161,7 +161,7 @@ function desenha_grafico(variavel, uf) {
             .on('mouseleave', function() {
                 d3.select(this).attr('stroke', '')
                 d3.select($('rect')[window.i_antigo]).attr('stroke', '')
-                tooltip.html('');
+    			tooltip.html('<p style="color:white">vazio</p>');
             })
             .transition()
             .delay(500)
@@ -289,16 +289,7 @@ function desenha_grafico(variavel, uf) {
 }
 
 $(document).ready(function() {
-    //liga o scroll do conteúdo
-    $('.barra_superior').slick({
-        speed: 300,
-        slidesToScroll: 1,
-        dots: true,
-        arrows: true,
-        infinite: false,
-        draggable: false
-    });
-
+    
     //liga a funcionalidade dos selects
     $('#variavel').on('hidden.bs.select', function(e) {
         var traduz = {
@@ -321,32 +312,6 @@ $(document).ready(function() {
         }
     });
 
-    $('.barra_superior').on('afterChange', function(slick, currentSlide, nextSlide) {
-        var slide = currentSlide.currentSlide
-        switch (slide) {
-            case 0:
-                desenha_grafico('fake');
-                break;
-            case 1:
-                desenha_grafico('raca');
-                break;
-            case 2:
-                desenha_grafico('raca', 'RJ');
-                break;
-            case 3:
-                desenha_grafico('raca', 'AC');
-                break;
-            case 4:
-                desenha_grafico('genero');
-                break;
-            case 5:
-                desenha_grafico('genero', "MG");
-                break;
-            case 6:
-                desenha_grafico('genero', "Brasil");
-                break;
-        }
-    });
 
     //baixa dados e inicializa
     d3.csv("dados/sexo_raca_ver.csv", function(data) {
