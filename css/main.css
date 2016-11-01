@@ -95,7 +95,12 @@ position: static;
 }
 
 .navbar {
+  padding-left: 0 !important;
   background: black !important;
+}
+
+.navbar_cabeca {
+  padding-left: 0 !important;
 }
 
 .share-buttons {
