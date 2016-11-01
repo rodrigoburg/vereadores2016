@@ -125,9 +125,7 @@ function desenha_grafico(variavel, uf) {
     window.dados_ordenados = dados;
 
     var quadrados_linha = Math.round(Math.round(Math.sqrt(dados.length) * 1.5)*((width-offset)/960));
-
     var cellSize = Math.floor(((width - offset) - (cellSpacing*quadrados_linha)) / quadrados_linha);
-    console.log(width,quadrados_linha,cellSize+cellSpacing)
     var altura = (Math.round(dados.length/quadrados_linha)+1)*(cellSize + cellSpacing) 
 
     svg.attr('height',altura)
