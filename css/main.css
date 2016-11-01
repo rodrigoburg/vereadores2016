@@ -2,13 +2,19 @@ h3 {
 	padding-bottom: 15px;
 }
 
-.content {
-  max-width:960px;
-  padding-top:15px;
+.menorzim {
+  font-size:13.5px;
 }
 
-.barra_superior {
-    padding-bottom:20px;
+.content {
+  max-width:960px;
+  padding-top:30px;
+}
+
+.barra_superior {    
+    padding-left:5px;
+    margin-left:15px;
+    width:90%;
 }
 
 .col-centered{
@@ -16,10 +22,14 @@ h3 {
     margin: 0 auto;
 }
 
-.slick-prev:before, .slick-next:before { 
-    color:red !important;
+.slick-prev:before, .slick-next:before {
+      color:red !important;
+    font-family: "Glyphicons Halflings", "slick", sans-serif;
+    font-size: 40px;
 }
 
+.slick-prev:before { content: "\e257"; }
+.slick-next:before { content: "\e258"; }
 
 html {
   font-size: 14px;
@@ -29,11 +39,17 @@ html {
   html {
     font-size: 16px;
   }
+  h1 {
+    font-size:1,5rem;
+  }
 }
 
 @include media-breakpoint-up(md) {
   html {
     font-size: 20px;
+  }
+  h1 {
+  font-size:3rem;
   }
 }
 
@@ -41,20 +57,84 @@ html {
   html {
     font-size: 28px;
   }
+  h1 {
+  font-size:3rem;
+  }
 }
 
 #input-cidade {
-	width:180px;
+	width:300px;
 	height:36px;
+  margin-top:8px;
+  margin-right:10px;
+  margin-bottom:5px;
+
+}
+
+.titulo {
+  padding-top:10px;
+  color:white;
 }
 
 .wrapper {
 position: relative;
 }
+
 .tt-dropdown-menu {
 position: static;
 }
 
+.tooltipi {
+  display:block;
+  height:10px;
+}
+
+.inputs {
+  padding-left:0 !important;
+  margin-bottom: 10px;
+}
+
+.navbar {
+  background: black !important;
+}
+
+.share-buttons {
+  float:right !important;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
 
 
+li {
+    float: left;
+}
 
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 3px;
+    text-decoration: none;
+}
+
+.links {
+  position: absolute;
+  float:right;
+  left: 85%;
+  top:20px;
+}
+
+footer {
+  text-align: center;
+}
+
+.explicacao {
+  font-size:0.8rem;
+  padding-left:20px;
+  padding-top:15px;
+}

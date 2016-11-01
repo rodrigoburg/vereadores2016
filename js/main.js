@@ -3,16 +3,27 @@ function getRandomArbitrary(min, max) {
     return Math.random() * (max - min) + min;
 }
 
-var width = Math.min($('body').width(), 960),
-    height = 990,
+var escala_offset = d3.scaleLinear()
+    .domain([400,900])
+    .range([0,20]);
+
+var escala_tooltip = d3.scaleLinear()
+    .domain([400,900])
+    .range([63,10]);
+
+
+var width = Math.min($('body').width()*0.99, 900),
+    height = 300,
     cellSpacing = 1,
-    offset = 10,
+    offset = escala_offset(width),
     cidades = [],
     variavel_selec = 'genero',
     uf_selec = 'Brasil',
-    data, dados_ordenados, i_antigo;
+    data, dados_ordenados, i_antigo = [];
 
 var tooltip = d3.selectAll(".tooltipi")
+
+tooltip.attr('height',escala_tooltip(width)+'px')
 
 var svg = d3.select("#grafico").append("svg");
 
@@ -33,42 +44,52 @@ function arruma_dados() {
     })
 }
 
+function destaca_quadrado(texto) {    
+    if (cidades.indexOf(texto)>-1) {
+        window.i_antigo.forEach(function (i) {
+            d3.select($('rect')[i]).attr('stroke', '')                    
+        })                
+        //acha o quadrado
+        var i = 0;
+        var valor;
+        window.dados_ordenados.every(function(element, index) {
+                if (element['nome']+'-'+element['uf'] == texto) {                       
+                    i = index;
+                    valor = element[variavel_selec];
+                    return false;
+                }
+                else return true;
+            });
+        window.i_antigo.push(i);
+        d3.select($('rect')[i]).attr('stroke', 'black')
+        var valor = formata(valor)
+        var sinal = 'mais'
+        if (valor < 0) {
+            sinal = 'menos'
+        }
+        var nome_var = 'masculina'
+        if (variavel_selec == 'raca') {
+            nome_var = 'branca'
+        }
+        tooltip.html('<b>'+(i+1)+'.</b> '+texto+ ': a Câmara é <b>' + Math.abs(valor) +'</b> pontos percentuais '+sinal+' '+nome_var+' que a população')
+    }
+}
+
+
 function arruma_input() {
-    var input = $('#input-cidade')
-    teste = input.typeahead({
-        source: cidades,
-        items:2
-    })
+    var input = document.getElementById("input-cidade");
+    new Awesomplete(input, {
+        list: cidades,
+        maxItems: 2
+    });
 
-    input.keypress(function (){    	
-    	var texto = input.val()
-    	if (cidades.indexOf(texto)>-1) {
-    		//acha o quadrado
-    		var i = 0;
-    		var valor;
-    		window.dados_ordenados.every(function(element, index) {
-				    if (element['nome']+'-'+element['uf'] == texto) {				    	
-				        i = index;
-				        valor = element[variavel_selec];
-				        return false;
-				    }
-				    else return true;
-				});
-    		window.i_antigo = i;
-    		d3.select($('rect')[i]).attr('stroke', 'black')
-            var valor = formata(valor)
-            var sinal = 'mais'
-            if (valor < 0) {
-            	sinal = 'menos'
-            }
-            var nome_var = 'masculina'
-            if (variavel_selec == 'raca') {
-            	nome_var = 'branca'
-            }
-            tooltip.html('<b>'+(i+1)+'.</b> '+texto+ ': a Câmara é <b>' + Math.abs(valor) +'</b> pontos percentuais '+sinal+' '+nome_var+' que a população')
-    	}
-    })
+    $('#input-cidade').on('awesomplete-selectcomplete', function () {        
+        destaca_quadrado($('#input-cidade').val())        
+    });
 
+    $('#input-cidade').keypress(function (){    	
+        destaca_quadrado($('#input-cidade').val())    
+    });    
 }
 
 function formata(d) {
@@ -85,7 +106,7 @@ function desenha_grafico(variavel, uf) {
 		.attr("width", 0)
 		.remove();
 
-    tooltip.html('<p style="color:white">vazio</p>');
+    tooltip.html('');
 
     d3.select('.linha_divisao').transition().duration(500).remove()
 
@@ -103,8 +124,13 @@ function desenha_grafico(variavel, uf) {
 
     window.dados_ordenados = dados;
 
-    var quadrados_linha = Math.floor(Math.floor(Math.sqrt(dados.length) * 1.5)*(width/960));
-    var cellSize = Math.floor((width) / quadrados_linha) - cellSpacing;
+    var quadrados_linha = Math.round(Math.round(Math.sqrt(dados.length) * 1.5)*((width-offset)/960));
+
+    var cellSize = Math.floor(((width - offset) - (cellSpacing*quadrados_linha)) / quadrados_linha);
+    console.log(width,quadrados_linha,cellSize+cellSpacing)
+    var altura = (Math.round(dados.length/quadrados_linha)+1)*(cellSize + cellSpacing) 
+
+    svg.attr('height',altura)
 
     var max = d3.max(dados, function(d) {
         return d[variavel];
@@ -160,8 +186,10 @@ function desenha_grafico(variavel, uf) {
             })
             .on('mouseleave', function() {
                 d3.select(this).attr('stroke', '')
-                d3.select($('rect')[window.i_antigo]).attr('stroke', '')
-    			tooltip.html('<p style="color:white">vazio</p>');
+                window.i_antigo.forEach(function (i) {
+                    d3.select($('rect')[i]).attr('stroke', '')                    
+                })                
+    			tooltip.html('');
             })
             .transition()
             .delay(500)
@@ -311,7 +339,6 @@ $(document).ready(function() {
             desenha_grafico(variavel_selec, uf_selec);
         }
     });
-
 
     //baixa dados e inicializa
     d3.csv("dados/sexo_raca_ver.csv", function(data) {

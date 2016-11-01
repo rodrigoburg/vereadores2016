@@ -6,34 +6,71 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
-        <meta name="description" content="">
+        <title>Representantes e representados</title>
+        <meta property="og:title" content="Representantes e representados" />
+        <meta name="description" content="Veja a distância que separa a raça e o gênero de vereadores e da população brasileira">
+        <meta property="og:description" content="Veja a distância que separa a raça e o gênero de vereadores e da população brasileira" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta property="og:site_name" content="Estadão Dados"/>
+        <meta property="og:url" content="http://estadaodados.com/representantes/" />
+        <meta property="og:locale" content="pt_BR" />
+        <meta name="author" content="Rodrigo Burgarelli / Estadão Dados"> <!-- A pessoa responsável pelo desenvolvimento deste arquivo -->
+        <meta name="DC.creator " content="Rodrigo Burgarelli / Estadão Dados"> <!-- Desenvolvedor da página -->
+        <meta name="DC.creator.address" content="rodrigo.burgarelli1@gmail.com"> <!-- email do autor da página -->
+        <meta property="og:image" content="http://estadaodados.com/representantes/img/facebook-img.png" />
+
+
+        <meta name="keywords" content="política, eleições, eleição, vereadores, câmaras, raça, gênero, demografia, jornalismo de dados, datajournalism">
+
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-select.min.css">
-        <link href="css/typeaheadjs.css" rel="stylesheet">
+        <link href="css/awesomplete.css" rel="stylesheet">
 
 
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
         <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
 
+
     </head>
     <body>
+    <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+                  <div class="col-md-3 col">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="#">
+                    <img width="150px" alt="Estadão Dados" src="img/logo-estadao-dados.png">
+                  </a>
+                </div>              
+              </div>
+          <div class="col-md-8 titulo">
+          <h1>Representantes <small class="text-muted">e representados</small></h1>
+          </div>
+          <div class='links'>
+                <ul class="share-buttons navbar-right">
+                    <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//estadaodados.com/representantes/" title="Compartilhar no Facebook" target="_blank"><img src="img/Facebook.png"></a></li>
+                    <li><a href="https://twitter.com/home?status=Veja%20a%20dist%C3%A2ncia%20que%20separa%20a%20ra%C3%A7a%20e%20o%20g%C3%AAnero%20de%20vereadores%20e%20da%20popula%C3%A7%C3%A3o%20brasileira%20(via%20%40estadaodados)%20http%3A//estadaodados.com/representantes/" target="_blank" title="Tweet"><img src="img/Twitter.png"></a></li>
+                    <li><a href="mailto:?&amp;subject=Representantes e representados - Estadão Dados&amp;body=Veja%20a%20dist%C3%A2ncia%20que%20separa%20a%20ra%C3%A7a%20e%20o%20g%C3%AAnero%20de%20vereadores%20e%20da%20popula%C3%A7%C3%A3o%20brasileira%20http%3A//estadaodados.com/representantes/" target="_blank" title="Email"><img src="img/Email.png"></a></li>
+                </ul>
+            </div>
+          </div>
+      </nav>
+
       <div class='content container-fluid col-centered'>        
         <div>
           <div class=barra_superior>
-            <div><h3>Uma simulação perfeita<small class="text-muted"> e equilibrada</small></h3>
-            <p>Cada quadradinho representa um dos 5562 municípios brasileiros<sup>*</sup>. Quanto mais vermelho, maior é o excedente de brancos na Câmara municipal eleita comparado com a população - ou seja, mais os brancos são sobrerrepresentados no Legislativo. O azul representa o contrário: cidades em que há mais brancos na população do que entre os representantes. Veja abaixo como o gráfico ficaria se a diferença de brancos e não-brancos entre os vereadores e a população fosse aleatória e equilibrada.</p>           
+            <div><h3>Entenda o gráfico</h3>
+            <p class='menorzim'>Os quadradinhos abaixos representam uma simulação de 5562 municípios brasileiros<sup><b>*</b></sup>  se a diferença da cor de pele entre os vereadores e a população fosse aleatória e equilibrada. Quanto mais vermelho o quadrado, maior é o excedente de brancos na Câmara comparado à população - ou seja, mais os brancos são sobrerrepresentados. Já o azul representa o contrário: cidades em que há mais brancos na população que entre os representantes.</p>           
             </div>
-            <div><h3>Mas a realidade é bem diferente</h3>
-            <p>Os dados agora mostram a diferença real da composição racial dos representantes e representados. Veja como a linha pontilhada cinza que separa os dois grupos de municípios está mais em cima. Só um em cada quatro municípios está do lado de cima da linha - e a grande maioria terá em 2017 uma Câmara municipal mais branca que a população.</p>              
+            <div><h3>Agora, a realidade</h3>
+            <p class='menorzim'>Os dados agora mostram a diferença real de raças entre representantes e representados. Veja como a linha pontilhada que separa os dois grupos de municípios está mais em cima. Só um em cada quatro municípios está acima da linha. Assim, a grande maioria terá em 2017 uma Câmara municipal mais branca que a população.</p>              
             <p class="tooltipi"></p>
             </div>
             <div><h3>Entre os Estados, o RJ é o mais desigual</h3>
-            <p>A diferença racial entre vereadores e população no Rio de Janeiro é a maior dos Estados brasileiros. Só 9 em 77 municípios têrão Câmaras menos brancas que a média dos seus moradores.</p>              
+            <p>A diferença racial entre vereadores e população no Rio de Janeiro é a maior dos Estados brasileiros. Só 9 em 91 municípios têrão Câmaras menos brancas que a média dos seus moradores.</p>              
             <p class="tooltipi"></p>
             </div>
             <div><h3>E o Acre é o oposto</h3>
@@ -41,7 +78,7 @@
             <p class="tooltipi"></p>
             </div>
             <div><h3>O fosso entre homens e mulheres é ainda bem maior</h3>
-            <p>A diferença de gênero entre representantes e representados é bem mais gritante do que a racial. Há uma proporção maior de mulheres eleitas para as Câmaras municipais do que na população em geral em apenas 24 cidades brasileiras. Em 1.288 municípios - ou seja, quase 1/4 do total -, todos os vereadores a partir do ano que vem serão homens.</p>
+            <p>A diferença de gênero é bem mais gritante do que a racial. Há uma proporção maior de mulheres eleitas para as Câmaras municipais em apenas 24 cidades. Em outras 1.288 - ou seja, quase 1/4 do total -, todos os vereadores serão homens.</p>
             <p class="tooltipi"></p>
             </div>
             <div><h3>O Sudeste é a região mais desigual em gênero</h3>
@@ -50,8 +87,9 @@
             </div>            
             <div class='wrapper'>
               <h3>Explore<small class="text-muted"> Passe o mouse, faça filtros e escolha cidades</small></h3>
-              <div class='col-md-6'><p class="tooltipi"></p></div>              
-              <div class='col-md-6 pull-right'>
+              <div class='col-md-12 pull-left inputs'>
+                <input type="text" id=input-cidade placeholder="Digite um nome de cidade"> 
+
                 <select id=variavel class="selectpicker" data-container="body" data-width='auto' data-style="btn-primary">
                   <option>Gênero</option>
                   <option>Raça</option>                  
@@ -86,14 +124,18 @@
                   <option>SP</option>
                   <option>TO</option>
               </select>
-              <input type="text" id=input-cidade autocomplete="off" placeholder="Digite um nome de cidade"> 
 
-              </div>
+              </div class="col-md-12">
+                <div><p class="tooltipi"></p></div>              
+
             </div>            
           </div>
           <div id=grafico>
           </div>
         </div>        
+        <div class='explicacao'>
+          <p><b>*</b> Só são analisados os 5.562 municípios brasileiros que têm Câmaras Municipais (ou seja, não entram na conta Fernando de Noronha-PE e Brasília-DF) e que existiam na época em que o Censo Demográfico de 2010 foi realizado. Os dados dos vereadoes eleitos são do Tribunal Superior Eleitoral (TSE) e os da população do Instituto Brasileiro de Geografia e Estatística (IBGE).</p>
+        </div>
       </div>
       <hr>
       <script src="js/vendor/jquery-1.11.2.min.js"></script>
@@ -110,6 +152,8 @@
         });
 
         $('.barra_superior').on('afterChange', function(slick, currentSlide, nextSlide) {
+
+        $('.slick-disabled').hide()
         var slide = currentSlide.currentSlide
         switch (slide) {
             case 0:
@@ -138,7 +182,8 @@
       </script>
 
       <footer>
-        <p>&copy; Company 2015</p>
+        <p>Rodrigo Burgarelli</p>
+        <p><b>Estadão Dados</b> • Copyright © 2016 • <a href="https://creativecommons.org/licenses/by-sa/3.0/br/">Alguns direitos reservados (CC-By-SA)</a></p>
       </footer>
     </div> 
 
@@ -146,7 +191,7 @@
         <script src="js/vendor/bootstrap.min.js"></script>
           <script src="js/vendor/bootstrap-select.js"></script>
         <script src="js/vendor/d3.v4.min.js"></script>
-        <script src="js/vendor/typeahead.min.js"></script>
+        <script src="js/vendor/awesomplete.min.js"></script>
 
         <script src="js/main.js"></script>
 
