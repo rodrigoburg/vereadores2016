@@ -191,8 +191,7 @@ function desenha_grafico(variavel, uf) {
                 })                
     			tooltip.html('');
             })
-            .transition()
-            .delay(500)
+            .transition()            
             .duration(1500)
             .attr("width", cellSize);
 
@@ -312,7 +311,7 @@ function desenha_grafico(variavel, uf) {
         } else {
             d3.selectAll('.explicacao_fake').transition(500).remove();
         }
-    }, 1000); // How long do you want the delay to be (in milliseconds)? 
+    }, 500); // How long do you want the delay to be (in milliseconds)? 
 
 }
 
