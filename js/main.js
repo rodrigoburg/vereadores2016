@@ -180,7 +180,7 @@ function desenha_grafico(variavel, uf) {
                 if (variavel == 'raca') {
                 	nome_var = 'branca'
                 }
-                tooltip.html('<b>'+(i+1)+'.</b> '+d['nome'] + '-' + d['uf'] + ': a Câmara é <b>' + Math.abs(valor) +'</b> pontos percentuais '+sinal+' '+nome_var+' que a população')
+                tooltip.html('<b># '+(i+1)+'.</b> '+d['nome'] + '-' + d['uf'] + ': a Câmara é <b>' + Math.abs(valor) +'</b> pontos percentuais '+sinal+' '+nome_var+' que a população')
             })
             .on('mouseleave', function() {
                 d3.select(this).attr('stroke', '')
